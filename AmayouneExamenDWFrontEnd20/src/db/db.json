@@ -1,0 +1,43 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "profil": "admin",
+      "email": "mail@mazil.com",
+      "photo": "",
+      "datecreateion": "",
+      "datefin": "2020-02-05T23:00:00.000Z",
+      "motdepasse": "1234"
+    },
+    {
+      "id": 2,
+      "profil": "user",
+      "email": "mais@mail.com",
+      "photo": "",
+      "datecreateion": "",
+      "datefin": "",
+      "motdepasse": "1234"
+    },
+    {
+      "id": 3,
+      "profil": "utilisateur",
+      "datecreateion": "",
+      "datefin": "",
+      "photo": "",
+      "email": "mais@mail.com",
+      "motdepasse": "1234"
+    },
+    {
+      "id": 4,
+      "profil": "editor",
+      "email": "uhkj@mail.com",
+      "photo": "osama",
+      "datecreateion": "1582800700421",
+      "datefin": "2020-02-10T23:00:00.000Z",
+      "motdepasse": "12345"
+    }
+  ],
+  "produit": [],
+  "fournisseur": [],
+  "client": []
+}
