@@ -11,10 +11,7 @@
                 <input type="hidden" formControlName="id">
                 
                
-                <mat-form-field>
-                    <input formControlName="photo" matInput placeholder="photo link"/>
-                    
-                </mat-form-field>
+
 
                
                 <mat-form-field>
@@ -50,7 +47,7 @@
                 </div>
              
                 <mat-form-field>
-                    <input formControlName="datefin" matInput [matDatepicker]="picker" placeholder="Hire Date">
+                    <input formControlName="datefin" matInput [matDatepicker]="picker" placeholder="datefin">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>

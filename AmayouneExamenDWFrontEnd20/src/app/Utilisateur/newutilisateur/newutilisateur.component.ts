@@ -52,8 +52,11 @@ onSubmit()
       console.log(this.user);
       this.update();
       this.service.form.reset();
+      
     }
     this.service.initializeFormGroup();
+    this.router.navigateByUrl("/Utilisateur");
+    
   }
 }
 
