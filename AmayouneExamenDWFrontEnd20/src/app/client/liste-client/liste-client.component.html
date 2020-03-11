@@ -1,6 +1,6 @@
 <div class="w-100  text-white  p-5 rounded" style="height: 20%;background:#824f53">
     Liste Client
-    <button class=" offset-8 btn btn-primary rounded rouded-circle" (click)="initform()" routerLink="/client/edit">ajouter</button>
+    <button *ngIf="cannew==true" class=" offset-8 btn btn-primary rounded rouded-circle" (click)="initform()" routerLink="/client/edit">ajouter</button>
     </div>
     
     <table class="w-100 bg-white" mat-table [dataSource]="dataSource" class="mat-elevation-z8">

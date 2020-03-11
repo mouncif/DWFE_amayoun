@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FournisseurService } from 'src/app/service/fournisseur.service';
 import { MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
+import { UtilisateurService } from 'src/app/service/utilisateur.service';
 
 @Component({
   selector: 'app-liste-fournisseur',
@@ -11,10 +12,27 @@ import { Router } from '@angular/router';
 export class ListeFournisseurComponent implements OnInit {
 
     //motdepasse:''
-      
+    cannew=false;
       displayedColumns: string[] = ['nom','nomcourt','ville','Fix','Tel','Fax','adresse','email','action'];
       dataSource = new MatTableDataSource();
-      constructor(public service:FournisseurService,public rout:Router) { }
+      constructor(public service:FournisseurService,public userservice:UtilisateurService,public rout:Router) { 
+
+        if(this.userservice.islogedin())
+    {
+      
+      if(this.userservice.getUser().profil=='user')
+      {
+        this.cannew=false;
+        this.displayedColumns=['nom','nomcourt','ville','Fix','Tel','Fax','adresse','email'];
+      }else{
+        this.cannew=true;
+      }
+
+    }else{
+      window.location.href="/";
+    }
+
+      }
     
       initform()
       {

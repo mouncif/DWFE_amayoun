@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FournisseurService } from 'src/app/service/fournisseur.service';
 import { Router } from '@angular/router';
+import { UtilisateurService } from 'src/app/service/utilisateur.service';
 
 @Component({
   selector: 'app-newfournisseur',
@@ -9,7 +10,21 @@ import { Router } from '@angular/router';
 })
 export class NewfournisseurComponent implements OnInit {
 
-  constructor(public service: FournisseurService,private router:Router) { }
+  constructor(public service: FournisseurService,public userservice:UtilisateurService,private router:Router) {
+
+    if(this.userservice.islogedin())
+    {
+      
+      if(this.userservice.getUser().profil=='user')
+      {
+        window.location.href="/";  
+      }
+
+    }else{
+      window.location.href="/";
+    }
+
+   }
 
   private user={
     id: null,

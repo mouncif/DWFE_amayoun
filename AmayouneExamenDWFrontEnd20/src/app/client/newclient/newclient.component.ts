@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/service/client.service';
 import { Router } from '@angular/router';
+import { UtilisateurService } from 'src/app/service/utilisateur.service';
 
 @Component({
   selector: 'app-newclient',
@@ -9,7 +10,20 @@ import { Router } from '@angular/router';
 })
 export class NewclientComponent implements OnInit {
 
-  constructor(public service: ClientService,private router:Router) { }
+  constructor(public service: ClientService,public userservice:UtilisateurService,private router:Router) {
+
+    if(this.userservice.islogedin())
+    {
+      
+      if(this.userservice.getUser().profil=='user')
+      {
+        window.location.href="/"; 
+      }
+
+    }else{
+      window.location.href="/";
+    }
+   }
 
   private user={
     id: null,
