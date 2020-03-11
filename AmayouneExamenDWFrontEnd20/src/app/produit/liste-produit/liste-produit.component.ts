@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { ProduitService } from 'src/app/service/produit.service';
 import { Router } from '@angular/router';
+import { UtilisateurService } from 'src/app/service/utilisateur.service';
 
 @Component({
   selector: 'app-liste-produit',
@@ -14,7 +15,24 @@ export class ListeProduitComponent implements OnInit {
   displayedColumns: string[] = ['image','nom','nomcourt','prixbase','prix','seuilmaxremise','unite','quantiteinitiale','quantiteactuel','action'];
   
   dataSource = new MatTableDataSource();
-  constructor(public service:ProduitService,public rout:Router) { }
+  cannew =false;
+  constructor(public service:ProduitService,public userservice:UtilisateurService,public rout:Router) { 
+
+    if(this.userservice.islogedin())
+    {
+      
+      if(this.userservice.getUser().profil=='user')
+      {
+        this.cannew=false;
+        this.displayedColumns=['image','nom','nomcourt','prixbase','prix','seuilmaxremise','unite','quantiteinitiale','quantiteactuel'];
+      }else{
+        this.cannew=true;
+      }
+
+    }else{
+      window.location.href="/";
+    }
+  }
 
   initform()
   {

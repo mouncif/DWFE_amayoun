@@ -14,7 +14,18 @@ export class ListeUtilisateurComponent implements OnInit {
       //motdepasse:''
   displayedColumns: string[] = ['photo','id','email', 'profil', 'datecreateion', 'datefin','action'];
   dataSource = new MatTableDataSource();
-  constructor(public service:UtilisateurService,public rout:Router) { }
+  constructor(public service:UtilisateurService,public rout:Router) { 
+    if(this.service.islogedin())
+    {
+      if(this.service.getUser().profil!='admin')
+      {
+        window.location.href="/";
+      }
+      
+    }else{
+      window.location.href="/";
+    }
+  }
 
   initform()
   {

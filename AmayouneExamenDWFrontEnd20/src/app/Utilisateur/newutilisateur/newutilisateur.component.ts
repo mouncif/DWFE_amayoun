@@ -9,7 +9,21 @@ import { UtilisateurService } from 'src/app/service/utilisateur.service';
 })
 export class NewutilisateurComponent implements OnInit {
 
-  constructor(public service: UtilisateurService,private router:Router) { }
+  constructor(public service: UtilisateurService,private router:Router) {
+
+    if(this.service.islogedin())
+    {
+      
+      if(this.service.getUser().profil!='admin')
+      {
+        
+        window.location.href="/";
+      }
+    }else{
+      window.location.href="/";
+    }
+
+   }
 
  private user={
   id: null,

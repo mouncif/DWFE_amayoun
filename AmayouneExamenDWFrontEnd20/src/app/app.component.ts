@@ -11,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({imports:[CommonModule,BrowserModule ],
   declarations: [AppComponent]})
-  
+
 export class AppComponent {
   title = 'AmayouneExamenDWFrontEnd20';
   nomuser =null;
@@ -58,6 +58,7 @@ export class AppComponent {
   {
     this.service.logOutUser();
     this.isloggedin=false;
+    //window.location.href="/Login";
     window.location.reload();
   }
 }

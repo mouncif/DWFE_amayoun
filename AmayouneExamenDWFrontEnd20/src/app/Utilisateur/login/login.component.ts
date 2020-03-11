@@ -10,7 +10,16 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public service:UtilisateurService,public router:Router) { }
+  constructor(public service:UtilisateurService,public router:Router) { 
+
+      if(this.service.islogedin())
+      {
+        
+        
+          window.location.href="/";
+        
+      }
+  }
 
   username="";
   password="";
@@ -39,8 +48,8 @@ export class LoginComponent implements OnInit {
           {
               
                 this.service.logUser({id:item.id,email:item.email,nom:item.nom,profil:item.profil});
-                console.log("connected"); 
-                // router.navigateByUrl('/')
+                console.log("connected "+ item.profil); 
+                window.location.reload();
                 console.log(this.service.getUser().profil);
           }
       }

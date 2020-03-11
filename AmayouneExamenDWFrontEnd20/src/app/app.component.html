@@ -12,11 +12,12 @@
   <div class="col col-3  p-4 sidebar" style="height:90vh">
     <mat-list>
 
-      <mat-list-item  role="listitem" style="color: white;" routerLink="/Utilisateur">Liste Utilisateurs</mat-list-item>
-      <mat-list-item role="listitem" style="color: white;" routerLink="/Login">Login</mat-list-item>
-      <mat-list-item role="listitem" style="color: white;" routerLink="/produit">produit</mat-list-item>
-      <mat-list-item role="listitem" style="color: white;" routerLink="/fournisseur">fournisseur</mat-list-item>
-      <mat-list-item role="listitem" style="color: white;" routerLink="/client">client</mat-list-item>
+      
+        
+        <mat-list-item *ngFor="let item of menu" role="listitem" style="color: white;" routerLink="{{item.path}}">{{ item.name }}</mat-list-item>
+        
+      
+      
     </mat-list>
   </div>
 
