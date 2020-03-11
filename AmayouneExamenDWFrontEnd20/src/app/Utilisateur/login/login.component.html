@@ -1,20 +1,33 @@
 <mat-card>
+    
+    <form [formGroup]="form" class="normal-form" (submit)="login()">
+    
     <table >
         <tr>
             <td>
                 <mat-form-field>
-                    <input formControlName="login" matInput placeholder="login">
-                   
+                    
+                    <input  formControlName="ndc" matInput placeholder="login">                   
                 </mat-form-field>
             </td>
         </tr>
         <tr>
             <td>
                 <mat-form-field>
-                    <input formControlName="password" matInput  placeholder="pass" type="password">
+                    <input formControlName="mdp" matInput  placeholder="pass" type="password">
               
                 </mat-form-field>
             </td>
         </tr>
+
+        <tr>
+            <td>
+                
+                    <Button type="submit"  class="btn btn-primary">Login</Button>
+              
+                
+            </td>
+        </tr>
     </table>
+</form>
 </mat-card>

@@ -54,4 +54,25 @@ export class UtilisateurService {
       motdepasse:''
     });
   }
+
+  logUser(data)
+  {
+    localStorage.setItem("user",btoa(JSON.stringify(data)));
+  }
+
+  getUser():any
+  {
+    return JSON.parse(atob(localStorage.getItem("user")));
+  }
+  logOutUser()
+  {
+    if(localStorage.getItem("user"))
+    {   
+      localStorage.removeItem("user");
+    }
+  }
+  islogedin()
+  {
+    return localStorage.getItem("user");
+  }
 }

@@ -28,13 +28,24 @@ export class LoginComponent implements OnInit {
   login()
   {
     this.service.findAll().subscribe((data)=>{
-      for(let item in data)
+      
+      
+      for(let itema in data)
       {
-          if(item.email==this.form.value.ndc && item.motdepasse==this.form.value.ndc)
+        
+         
+        let item:any = data[itema];
+          if(item.email==this.form.value.ndc && item.motdepasse==this.form.value.mdp)
           {
-              localStorage.setItem("user",item);
+              
+                this.service.logUser({id:item.id,email:item.email,nom:item.nom,profil:item.profil});
+                console.log("connected"); 
+                // router.navigateByUrl('/')
+                console.log(this.service.getUser().profil);
           }
       }
     })
   }
+
+ 
 }

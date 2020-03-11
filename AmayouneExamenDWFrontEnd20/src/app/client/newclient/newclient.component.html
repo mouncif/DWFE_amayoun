@@ -1,0 +1,73 @@
+<div class="w-100 rounded p-5 text-white" style="height: 20%;background:#824f53">
+    Formulaire utilisateur
+    <button class=" offset-8 btn btn-primary rounded rouded-circle" (click)="initform()" routerLink="/client">retour</button>
+    </div>
+    
+<mat-card class="mt-2">
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="id">
+                
+               
+              
+
+               <!-- 
+
+               id: null,
+               nom: '',
+               prenom:'',
+               statut:'',
+               photo: '',
+               email: '',
+               telephone:'',
+               adresse:'',
+               ville:''-->
+               
+               <mat-form-field>
+                <input formControlName="nom" matInput placeholder="nom">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="prenom" matInput placeholder="prenom">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="statut" matInput placeholder="statut">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="photo" matInput placeholder="photo">
+            </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+            <mat-form-field>
+                <input formControlName="email" matInput placeholder="email">
+                <mat-error>Invalid email address.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="telephone" matInput placeholder="telephone">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="adresse" matInput placeholder="adresse">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="ville" matInput placeholder="ville">
+            </mat-form-field>
+               
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
+                    <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
+</mat-card>

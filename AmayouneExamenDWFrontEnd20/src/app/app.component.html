@@ -3,13 +3,23 @@
   <mat-toolbar class="header" class="row">
     <span class="col display-5 font-weight-bold">smart Vente</span>
 
-    <span class="offset-8 col">
-      icons here
+    <span class="offset-8 col" *ngIf="isloggedin==true">
+      <h5>{{ nomuser }} </h5>
+      <button class="btn btn-secondary" (click)="logout()">déconnection</button>
     </span>
   </mat-toolbar>
 <div class="row ">
   <div class="col col-3  p-4 sidebar" style="height:90vh">
-    
+    <mat-list>
+      <ng-tempalte *ngfor="let item of menu;" > 
+        <mat-list-item role="listitem" style="color: white;" routerLink="{{item.path}}">{{ item.name }}</mat-list-item>
+      </ng-tempalte>
+     
+      <mat-list-item role="listitem" style="color: white;" routerLink="/Login">Login</mat-list-item>
+      <mat-list-item role="listitem" style="color: white;" routerLink="/produit">produit</mat-list-item>
+      <mat-list-item role="listitem" style="color: white;" routerLink="/fournisseur">fournisseur</mat-list-item>
+      <mat-list-item role="listitem" style="color: white;" routerLink="/client">client</mat-list-item>
+    </mat-list>
   </div>
 
   <div class="col col-9  page-back" style="min-height:90vh">    
