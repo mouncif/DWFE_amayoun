@@ -9,8 +9,9 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 
-@NgModule({imports:[CommonModule ],
+@NgModule({imports:[CommonModule,BrowserModule ],
   declarations: [AppComponent]})
+  
 export class AppComponent {
   title = 'AmayouneExamenDWFrontEnd20';
   nomuser =null;
@@ -48,6 +49,7 @@ export class AppComponent {
       {
         this.menu= this.menus.user;
       }
+      console.log(this.menu[0].name);
     }
     
   }
